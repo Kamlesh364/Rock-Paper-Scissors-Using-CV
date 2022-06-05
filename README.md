@@ -21,6 +21,8 @@ Rock-Paper-Scissors:
     -paper.png
     -rock.png
     -scissors.png
+ *logs:
+    -logs.xlsx
 *main.py
 ```
 
