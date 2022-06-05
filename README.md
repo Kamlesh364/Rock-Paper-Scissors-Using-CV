@@ -57,7 +57,9 @@ python3 main.py
 
 1. The patient can adjust his hand position (rock or paper or scissor) in fron of the web cam and press `Start` to begin the game.
 
-2. The application guesses computer's move and show the results on the screen. 
+2. The application guesses computer's move and shows the results on the screen. 
+
+![example](assets/example.png)
 
 3. Once the result of first round is shown, the GUI waits for 3 seconds to let the patient adjust his/her hand again, oppposite the camera.
 
