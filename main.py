@@ -32,12 +32,6 @@ class Ui_MainWindow(object):
         self.Start.setStyleSheet(
             "QPushButton::hover""{""background-color:lightgreen;""}""QPushButton""{""border:None;border-style: outset; border-radius:5px; background-color:rgb(255, 170, 127); font-size:15pt""}")
 
-        self.Stop = QPushButton(MainWindow)
-        self.Stop.setGeometry(QtCore.QRect(410, 40, 130, 35))
-        self.Stop.setObjectName("Stop")
-        self.Stop.setStyleSheet(
-            "QPushButton::hover""{""background-color:lightgreen;""}""QPushButton""{""border:None;border-style: outset; border-radius:5px; background-color:rgb(255, 170, 127); font-size:15pt""}")
-
         self.Exit = QPushButton(MainWindow)
         self.Exit.setGeometry(QtCore.QRect(800, 40, 130, 35))
         self.Exit.setStyleSheet(
@@ -88,7 +82,6 @@ class Ui_MainWindow(object):
 
         # Defining the clicking actions of GUI buttons
         self.Start.clicked.connect(self.start_scanning)
-        self.Stop.clicked.connect(self.stop_scanning)
         self.Exit.clicked.connect(self.exit_gui)
 
         # required variables
@@ -104,7 +97,6 @@ class Ui_MainWindow(object):
             "MainWindow", "Real Time teeth segmentation"))
         self.Exit.setText(_translate("MainWindow", "Exit"))
         self.Start.setText(_translate("MainWindow", "Start"))
-        self.Stop.setText(_translate("MainWindow", "Stop"))
         self.ComputerSide.setText(_translate(
             "MainWindow", "You'll see me here!"))
         self.PatientSide.setText(_translate(
@@ -124,11 +116,6 @@ class Ui_MainWindow(object):
             return "paper"
         else:
             return "scissors"
-    
-    # to stop the game
-    def stop_scanning(self):
-        self.stop = True
-        return
 
     # to check who won
     def check_winner(self, prediction, guess):
@@ -190,12 +177,7 @@ class Ui_MainWindow(object):
                 msg.setStandardButtons(QMessageBox.Ok)
                 msg.exec_()
                 return
-
-            if self.stop:
-                self.stop = False
-                break
-        cap.release()
-
+            
     # To display the image image in GUI, with or without detection
     def displayTo(self, image, frame):
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
