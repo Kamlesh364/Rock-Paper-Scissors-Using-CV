@@ -1,6 +1,6 @@
 # Rock-Paper-Scissors game using TensorFlow, OpenCv and PyQt5.
 
-This project consists an application which can be used for the entertainment of Patients in Hospitals. The application comprises a Graphical User Interphase(GUI) which created using a python GUI library called PyQt5.
+This project consists an application which can be used for the entertainment of Patients in Hospitals. The application comprises a Graphical User Interface(GUI) which created using a python GUI library called PyQt5.
 
 
 The project is tested against **TensorFlow 2.7.0**, **Keras 2.7.0-tf**, and **Python 3.8.10** for the following system specifications:
@@ -53,7 +53,7 @@ pip3 install -r requirements.txt
 python3 main.py
 ```
 
-# Graphical User Interphase
+# Graphical User Interface
 
 ![GUI](assets/GUI.png)
 
