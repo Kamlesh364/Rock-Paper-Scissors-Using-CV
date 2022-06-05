@@ -62,3 +62,5 @@ python3 main.py
 3. Once the result of first round is shown, the GUI waits for 3 seconds to let the patient adjust his/her hand again, oppposite the camera.
 
 4. This process continues till the user presses `Stop` or `Exit` to stop the game or to close the GUI.
+
+5. Demonstration of the working of this GUI application can be found [here](https://drive.google.com/file/d/12YZDkdVjLMcukAtw5pRUSMxh4iSgUUB-/view?usp=sharing) 
