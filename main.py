@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
         else:
             move = "scissors"
 
-        df = pd.read_excel("logs.xlsx")
+        df = pd.read_excel("logs\logs.xlsx")
         df1 = pd.DataFrame({"Patient's Move": [move]})
         df = df.append(df1)
         df.to_excel("logs.xlsx")
