@@ -4,7 +4,7 @@ This project consists an application which can be used for the entertainment of 
 
 
 The project is tested against **TensorFlow 2.7.0**, **Keras 2.7.0-tf**, and **Python 3.8.10** for the following system specifications:
-1. GPU - `GeForce RTX 3060 12GiB` and `GeForce GTX 1050`
+1. GPU - `GeForce RTX 3060 12GiB` and `GeForce GTX 1050 4GiB`
 3. OS - `Ubuntu20.04`
 
 **Note:** `This project does not support any of the available versions of Tensorflow1.`
@@ -29,92 +29,26 @@ Rock-Paper-Scissors:
 The classification [model](https://github.com/Kamlesh364/Rock-Paper-Scissors-Using-CV/my_model1.h5) used in this project is trained on the open source [dataset](https://laurencemoroney.com/datasets.html#rock-paper-scissors-dataset) comprising artificial hand positions for demonstration of rock-paper-scissors.
 
 The training performance of this model is shown below:
+
 ![model_performance](assets/CNN1-performance.png)
 
-Note that the [Mask-RCNN-TF2.7.0-keras2.7.0](https://github.com/kamlesh364/Mask-RCNN-TF2.7.0-keras2.7.0) project uses the same training and testing code as in the old project.
+Test results:
 
-![Instance Segmentation Sample](assets/street.png)
-
-The repository includes:
-* Source code of Mask R-CNN built on FPN and ResNet101 inside the `mrcnn` directory.
-* Training code for MS COCO
-* Jupyter notebooks to visualize the detection pipeline at every step
-* ParallelModel class for multi-GPU training
-* Evaluation on MS COCO metrics (AP)
-* Example of training on your own dataset
-
-The code is documented and designed to be easy to extend. If you use it in your research, please consider citing this repository (bibtex below).
+![Test-samples](assets/tests-results.png)
 
 # Getting Started
-* [mrcnn-prediction.py](samples/mrcnn-prediction.py): A script for loading the pre-trained weights and making predictions using the Mask R-CNN model.
-* [coco_labels.txt](samples/coco_labels.txt): The class labels of the COCO dataset.
-* [demo.ipynb](samples/demo.ipynb) Is the easiest way to start. It shows an example of using a model pre-trained on MS COCO to segment objects in your own images. It includes code to run object detection and instance segmentation on arbitrary images.
-* [train_shapes.ipynb](samples/shapes/train_shapes.ipynb) shows how to train Mask R-CNN on your own dataset. This notebook introduces a toy dataset (Shapes) to demonstrate training on a new dataset.
-* ([model.py](mrcnn/model.py), [utils.py](mrcnn/utils.py), [config.py](mrcnn/config.py)): These files contain the main Mask RCNN implementation. 
 
-
-* [inspect_data.ipynb](samples/coco/inspect_data.ipynb). This notebook visualizes the different pre-processing steps
-to prepare the training data.
-
-* [inspect_model.ipynb](samples/coco/inspect_model.ipynb) This notebook goes in depth into the steps performed to detect and segment objects. It provides visualizations of every step of the pipeline.
-
-* [inspect_weights.ipynb](samples/coco/inspect_weights.ipynb)
-This notebooks inspects the weights of a trained model and looks for anomalies and odd patterns.
-
-
-# Step by Step Detection
-To help with debugging and understanding the model, there are 3 notebooks 
-([inspect_data.ipynb](samples/coco/inspect_data.ipynb), [inspect_model.ipynb](samples/coco/inspect_model.ipynb),
-[inspect_weights.ipynb](samples/coco/inspect_weights.ipynb)) that provide a lot of visualizations and allow running the model step by step to inspect the output at each point. Here are a few examples:
-
-## 1. Anchor sorting and filtering
-Visualizes every step of the first stage Region Proposal Network and displays positive and negative anchors along with anchor box refinement.
-![](assets/detection_anchors.png)
-
-## 2. Bounding Box Refinement
-This is an example of final detection boxes (dotted lines) and the refinement applied to them (solid lines) in the second stage.
-![](assets/detection_refinement.png)
-
-## 3. Mask Generation
-Examples of generated masks. These then get scaled and placed on the image in the right location.
-![](assets/detection_masks.png)
-
-## 4.Layer activations
-Often it's useful to inspect the activations at different layers to look for signs of trouble (all zeros or random noise).
-![](assets/detection_activations.png)
-
-## 5. Weight Histograms
-Another useful debugging tool is to inspect the weight histograms. These are included in the inspect_weights.ipynb notebook.
-![](assets/detection_histograms.png)
-
-## 6. Logging to TensorBoard
-TensorBoard is another great debugging and visualization tool. The model is configured to log losses and save weights at the end of every epoch.
-![](assets/detection_tensorboard.png)
-
-## 6. Composing the different pieces into a final result
-![](assets/detection_final.png)
-
-
-# Training on MS COCO
-We're providing pre-trained weights for MS COCO to make it easier to start. You can
-use those weights as a starting point to train your own variation on the network.
-Training and evaluation code is in `samples/coco/coco.py`. You can import this
-module in Jupyter notebook (see the provided notebooks for examples) or you
-can run it directly from the command line as such:
-
+1. Clone the repository
+```bash
+git clone https://github.com/Kamlesh364/Rock-Paper-Scissors-Using-CV/
 ```
-# Train a new model starting from pre-trained COCO weights
-python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=coco
-
-# Train a new model starting from ImageNet weights
-python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=imagenet
-
-# Continue training a model that you had trained earlier
-python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=/path/to/weights.h5
-
-# Continue training the last model you trained. This will find
-# the last trained weights in the model directory.
-python3 samples/coco/coco.py train --dataset=/path/to/coco/ --model=last
+3. Install dependencies
+```bash
+pip3 install -r requirements.txt
+```
+3. Run setup from the repository root directory
+```bash
+python3 main.py
 ```
 
 You can also run the COCO evaluation code with:
