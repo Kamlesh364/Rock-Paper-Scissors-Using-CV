@@ -13,9 +13,11 @@ from PyQt5.QtWidgets import (QApplication, QLabel,
                              QMessageBox, QPushButton)
 from PyQt5.QtGui import QImage, QPixmap, QIcon
 import cv2
+import os
 import numpy as np
 from random import choice
 import time
+import pandas as pd
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -110,13 +112,19 @@ class Ui_MainWindow(object):
         test_image = cv2.resize(test_image, (150, 150))
         test_image = np.expand_dims(test_image, axis=0)
         result = model.predict(test_image)
-        if result[0][1] == 1: 
-            return "rock"
+        if result[0][1] == 1:
+            move = "rock"
         elif result[0][2] == 1:
-            return "paper"
+            move = "paper"
         else:
-            return "scissors"
+            move = "scissors"
 
+        df = pd.read_excel("logs.xlsx")
+        df1 = pd.DataFrame({"Patient's Move": [move]})
+        df = df.append(df1)
+        df.to_excel("logs.xlsx")
+        return move
+            
     # to check who won
     def check_winner(self, prediction, guess):
         if prediction == guess:
@@ -177,7 +185,7 @@ class Ui_MainWindow(object):
                 msg.setStandardButtons(QMessageBox.Ok)
                 msg.exec_()
                 return
-            
+
     # To display the image image in GUI, with or without detection
     def displayTo(self, image, frame):
         image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
