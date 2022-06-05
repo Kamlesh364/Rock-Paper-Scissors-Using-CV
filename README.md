@@ -29,7 +29,7 @@ Rock-Paper-Scissors:
 The classification [model](https://github.com/Kamlesh364/Rock-Paper-Scissors-Using-CV/my_model1.h5) used in this project is trained on the open source [dataset](https://laurencemoroney.com/datasets.html#rock-paper-scissors-dataset) comprising artificial hand positions for demonstration of rock-paper-scissors.
 
 The training performance of this model is shown below:
-![model_performance](assets/kangaro-test.png)
+![model_performance](assets/CNN1-performance.png)
 
 Note that the [Mask-RCNN-TF2.7.0-keras2.7.0](https://github.com/kamlesh364/Mask-RCNN-TF2.7.0-keras2.7.0) project uses the same training and testing code as in the old project.
 
