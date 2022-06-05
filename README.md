@@ -57,7 +57,7 @@ python3 main.py
 
 1. The patient can adjust his hand position (rock or paper or scissor) in fron of the web cam and press `Start` to begin the game.
 
-2. The application guesses computer's move and shows the results on the screen. 
+2. The application guesses computer's move and shows the results on the screen, simultaneously every move of the patient is recorded in `logs\logs.xlsx`. 
 
 ![example](assets/example.png)
 
