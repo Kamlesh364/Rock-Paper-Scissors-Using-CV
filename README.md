@@ -63,4 +63,4 @@ python3 main.py
 
 4. This process continues till the user presses `Stop` or `Exit` to stop the game or to close the GUI.
 
-5. Demonstration of the working of this GUI application can be found [here](https://drive.google.com/file/d/12YZDkdVjLMcukAtw5pRUSMxh4iSgUUB-/view?usp=sharing) 
+5. Demonstration of the working of this GUI application can be found [here](https://drive.google.com/file/d/12YZDkdVjLMcukAtw5pRUSMxh4iSgUUB-/view?usp=sharing).
